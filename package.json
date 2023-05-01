@@ -6,7 +6,8 @@
     "type": "module",
     "scripts": {
         "start": "node .",
-        "dev": "nodemon ."
+        "dev": "nodemon .",
+        "test": "node src/tests/test.js"
     },
     "keywords": [],
     "author": "bugsum",
