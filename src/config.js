@@ -64,7 +64,7 @@ const data = {
                     {
                         name: 'SynthCore Development',
                         type: ActivityType.Listening,
-                        url: '',
+                        // url: '',
                     },
                 ],
                 // shardId: [],
