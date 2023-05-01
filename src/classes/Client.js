@@ -69,7 +69,7 @@ class Snappy extends Client {
                         }
                     )
                     .then((res) =>
-                        console.log(`${res.length} commands loaded globally.`)
+                        console.log(`${res.length} commands loaded locally.`)
                     );
                 break;
 
@@ -85,7 +85,7 @@ class Snappy extends Client {
                         }
                     )
                     .then((res) =>
-                        console.log(`${res.length} commands loaded globally.`)
+                        console.log(`${res.length} commands loaded locally.`)
                     );
                 break;
         }
