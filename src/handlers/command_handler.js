@@ -30,8 +30,8 @@ export default async (client) => {
 
                 client.commands_array.push(command.data);
                 client.commands.set(command.data.name, command);
-                client.deploy(client.commands_array);
             }
+            client.deploy(client.commands_array);
         }
     } catch (error) {
         console.error(error);

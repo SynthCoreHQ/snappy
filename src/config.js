@@ -90,7 +90,7 @@ const data = {
     },
     embeds: {
         color: {
-            info: Colors.Greyple,
+            info: Colors.Blurple,
             warn: Colors.Yellow,
             error: Colors.Red,
         },
