@@ -4,15 +4,18 @@ import { Guilds } from '../../database/models/Guilds.js';
 
 export default {
     data: {
-        name: Events.ClientReady,
-        mode: 'once',
+        name: Events.Warn,
+        mode: 'on',
     },
 
     /**
      * @param {Snappy} client
      */
-    run: async (client) => {
-        console.log(`${client.user.username} is Ready.`);
-        // Guilds.sync();
+    run: async (client, info) => {
+        try {
+            client.logger.warn(info);
+        } catch (e) {
+            client.logger.error(e);
+        }
     },
 };

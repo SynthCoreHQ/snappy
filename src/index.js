@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import { data } from './config.js';
+import 'colors';
 
 import { Snappy } from './classes/Client.js';
 

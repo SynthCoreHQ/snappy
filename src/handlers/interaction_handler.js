@@ -8,10 +8,10 @@ import { NotFound } from '../errors/NotFound.js';
  */
 export default async (client) => {
     try {
-        const commands = readdirSync(client.settings.paths.commands);
+        const commands = readdirSync(client.settings.paths.interactions);
 
         for (const dir of commands) {
-            const folders = join(client.settings.paths.commands, dir);
+            const folders = join(client.settings.paths.interactions, dir);
             const folder = readdirSync(folders).filter((f) =>
                 f.endsWith('.js')
             );
@@ -28,10 +28,8 @@ export default async (client) => {
                 if (!command.run)
                     throw new NotFound('No Command run method found.');
 
-                client.commands_array.push(command.data);
-                client.commands.set(command.data.name, command);
+                client.interactions.set(command.data.name, command);
             }
-            client.deploy(client.commands_array);
         }
     } catch (error) {
         console.error(error);

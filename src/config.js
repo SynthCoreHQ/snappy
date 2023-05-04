@@ -1,6 +1,8 @@
 import { join } from 'node:path';
 import { cwd } from 'node:process';
+import 'dotenv/config';
 import { GatewayIntentBits, Partials, ActivityType, Colors } from 'discord.js';
+import chalk from 'chalk';
 
 const data = {
     client: {
@@ -16,7 +18,7 @@ const data = {
         developers: [],
         // An Object of Client Options
         data: {
-            shards: 'auto',
+            // shards: 'auto',
             // closeTimeout: 5_000,
             // shardCount: 1,
             // makeCache: undefined,
@@ -25,9 +27,9 @@ const data = {
                 Partials.Channel,
                 Partials.GuildMember,
                 Partials.Message,
-                Partials.Reaction,
-                Partials.GuildScheduledEvent,
-                Partials.ThreadMember,
+                // Partials.Reaction,
+                // Partials.GuildScheduledEvent,
+                // Partials.ThreadMember,
             ],
             intents: [
                 GatewayIntentBits.Guilds,
@@ -56,10 +58,10 @@ const data = {
                 roles: [],
                 repliedUser: true,
             },
-            failIfNotExists: true,
+            // failIfNotExists: true,
             presence: {
                 status: 'idle' /* online, idle, invisible, dnd */,
-                afk: false,
+                // afk: false,
                 activities: [
                     {
                         name: 'SynthCore Development',
@@ -70,7 +72,7 @@ const data = {
                 // shardId: [],
             },
             // waitGuildTimeout: 15_000,
-            sweepers: {},
+            // sweepers: {},
         },
     },
     interactions: {
@@ -98,9 +100,11 @@ const data = {
     paths: {
         root: join(cwd(), 'src'),
         classes: join(cwd(), 'src', 'classes'),
-        commands: join(cwd(), 'src', 'commands'),
+        interactions: join(cwd(), 'src', 'interactions'),
+        messages: join(cwd(), 'src', 'messages'),
         events: join(cwd(), 'src', 'events'),
         handlers: join(cwd(), 'src', 'handlers'),
+        database: join(cwd(), 'src', 'database'),
     },
 };
 

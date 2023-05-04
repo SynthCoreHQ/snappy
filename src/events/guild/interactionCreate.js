@@ -21,7 +21,7 @@ export default {
         if (!interaction.guild) return;
 
         if (interaction.type === InteractionType.ApplicationCommand) {
-            const command = client.commands.get(interaction.commandName);
+            const command = client.interactions.get(interaction.commandName);
 
             if (!command)
                 return interaction.reply({

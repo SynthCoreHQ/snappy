@@ -58,11 +58,12 @@ export default {
         const res = await interaction.reply({
             content: `What do you want to see.`,
             components: [row],
+            ephemeral: true,
         });
 
         const collector = res.createMessageComponentCollector({
             componentType: ComponentType.Button,
-            time: 60_000,
+            time: 10_000,
         });
 
         collector.on('collect', async (i) => {
@@ -77,6 +78,7 @@ export default {
                     content: '',
                     embeds: [_pingEmbed],
                     components: [row],
+                    ephemeral: true,
                 });
 
             if (i.customId === 'uptime') {
@@ -84,10 +86,15 @@ export default {
                     content: '',
                     embeds: [_uptimeEmbed],
                     components: [row],
+                    ephemeral: true,
                 });
             }
 
             // if (i.customId === 'delete') await res.delete();
+        });
+
+        collector.on('end', async (i) => {
+            await res.edit({ components: [], ephemeral: true });
         });
     },
 };

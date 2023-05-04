@@ -21,25 +21,14 @@ export default async (client) => {
                     (r) => r.default
                 );
                 client.events.set(event.data.name, event);
-
-                switch (event.data.mode) {
-                    case 'on':
-                        client.on(event.data.name, (...args) =>
-                            event.run(client, ...args)
-                        );
-                        break;
-
-                    case 'once':
-                        client.once(event.data.name, (...args) =>
-                            event.run(client, ...args)
-                        );
-                        break;
-
-                    default:
-                        client.on(event.data.name, (...args) =>
-                            event.run(client, ...args)
-                        );
-                        break;
+                if (event.data.mode === 'once') {
+                    client.once(event.data.name, (...args) =>
+                        event.run(client, ...args)
+                    );
+                } else {
+                    client.on(event.data.name, (...args) =>
+                        event.run(client, ...args)
+                    );
                 }
             }
         }
